@@ -1,5 +1,5 @@
 const fs = require("fs");
-var array = fs.readFileSync('input/day1-1.txt').toString().split("\n").map(i => Number(i));
+var array = fs.readFileSync('input/day1.txt').toString().split("\n").map(i => Number(i));
 part1();
 part2();
 

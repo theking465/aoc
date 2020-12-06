@@ -18,6 +18,7 @@
     "author": "daanv",
     "license": "ISC",
     "dependencies": {
+        "alphabet": "^1.0.0",
         "fs": "0.0.1-security"
     }
 }

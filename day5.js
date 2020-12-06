@@ -34,7 +34,6 @@ for (let i = 0; i < all.length; i++) {
     }
 }
 
-
 function seatID(element) {
     //[lower, upper]
     let row = [0, 127];

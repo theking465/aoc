@@ -1,6 +1,6 @@
 const fs = require("fs");
 var array = fs.readFileSync('input/day9.txt').toString().split("\r\n").map(i => Number(i));
-
+let length = array.length;
 var checkifSum = (elem, x, y) => {
     for (let i = x; i <= y; i++) {
         const elem1 = array[i];
@@ -17,7 +17,7 @@ var sum = (arr) => arr.reduce((a, b) => a + b, 0);
 
 //part1
 var part1;
-for (let i = 24; i < array.length; i++) {
+for (let i = 24; i < length; i++) {
     const element = array[i];
     if (!checkifSum(element, i - 25, i)) {
         part1 = element;
@@ -27,12 +27,10 @@ for (let i = 24; i < array.length; i++) {
 }
 
 //part2
-for (let i = 0; i < array.length; i++) {
-    const elem1 = array[i];
-    let sol = [elem1];
-    for (let j = i + 1; j < array.length; j++) {
-        const elem2 = array[j];
-        sol.push(elem2);
+for (let i = 0; i < length; i++) {
+    let sol = [array[i]];
+    for (let j = i + 1; j < length; j++) {
+        sol.push(array[j]);
         if (sum(sol) > part1) break;
         if (sum(sol) == part1) {
             console.log("solution day9 part2: ", Math.min(...sol) + Math.max(...sol));

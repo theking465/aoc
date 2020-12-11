@@ -11,10 +11,23 @@ let bool = true;
 while (bool) {
     bool = part1()
 }
+console.log("solution day11 part1: ", [].concat(...matrix).filter(x => x == "#").length);
+console.timeEnd();
+//part2
+matrix = [];
+array.forEach(elem => {
+    let row = elem.split("");
+    matrix.push(row);
+});
+console.time();
+bool = true;
+while (bool) {
+    bool = part2()
+}
 console.log("solution day11 part2: ", [].concat(...matrix).filter(x => x == "#").length - 1);
 console.timeEnd();
 
-function part1() {
+function part2() {
     let newMatrix = JSON.parse(JSON.stringify(matrix));
     let changed = false;
     for (let i = 0; i < matrix.length; i++) {
@@ -23,12 +36,12 @@ function part1() {
             const seat = row[j];
             if (seat === ".") continue;
             if (seat === "L") {
-                if (occSeat(i, j) == 0) {
+                if (occSeat2(i, j) == 0) {
                     newMatrix[i][j] = "#";
                     changed = true;
                 }
             } else {
-                if (occSeat(i, j) >= 5) {
+                if (occSeat2(i, j) >= 5) {
                     newMatrix[i][j] = "L";
                     changed = true;
                 }
@@ -40,7 +53,48 @@ function part1() {
     return changed;
 }
 
-function occSeat(row, col) {
+function part1() {
+    let newMatrix = JSON.parse(JSON.stringify(matrix));
+    let changed = false;
+    for (let i = 0; i < matrix.length; i++) {
+        const row = matrix[i];
+        for (let j = 0; j < row.length; j++) {
+            const seat = row[j];
+            if (seat === ".") continue;
+            if (seat === "L") {
+                if (occSeat1(i, j) == 0) {
+                    newMatrix[i][j] = "#";
+                    changed = true;
+                }
+            } else {
+                if (occSeat1(i, j) >= 4) {
+                    newMatrix[i][j] = "L";
+                    changed = true;
+                }
+
+            }
+        }
+    }
+    matrix = newMatrix;
+    return changed;
+}
+
+function occSeat1(row, col) {
+    let amount = 0;
+    for (let i = row - 1; i < matrix.length && i <= row + 1; i++) {
+        if (i < 0) continue;
+        const rowelem = matrix[i];
+        for (let j = col - 1; j < matrix[0].length && j <= col + 1; j++) {
+            if (j < 0) continue;
+            if (i == row && j == col) continue;
+            const elem = rowelem[j];
+            if (elem == "#") amount++;
+        }
+    }
+    return amount;
+}
+
+function occSeat2(row, col) {
     let amount = 0;
 
     //top

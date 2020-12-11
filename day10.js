@@ -1,5 +1,4 @@
 const fs = require("fs");
-const { off } = require("process");
 var array = fs.readFileSync('input/day10.txt').toString().split("\r\n").map(i => Number(i)).sort((a, b) => a - b);
 let max = array[array.length - 1];
 //part1

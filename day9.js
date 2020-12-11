@@ -25,8 +25,8 @@ for (let i = 24; i < length; i++) {
         break;
     };
 }
-
-//part2
+console.time()
+    //part2
 for (let i = 0; i < length; i++) {
     let sol = [array[i]];
     for (let j = i + 1; j < length; j++) {
@@ -38,3 +38,4 @@ for (let i = 0; i < length; i++) {
         }
     }
 }
+console.timeEnd()

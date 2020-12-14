@@ -26,6 +26,8 @@
     "license": "ISC",
     "dependencies": {
         "alphabet": "^1.0.0",
-        "fs": "0.0.1-security"
+        "bignum": "^0.13.1",
+        "fs": "0.0.1-security",
+        "nodejs-chinese-remainder": "0.0.6"
     }
 }

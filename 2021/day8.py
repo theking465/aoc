@@ -1,15 +1,15 @@
 import itertools
 
 data = [j.split(" ") for entry in [i.split(" | ") for i in open("input/day8.txt", "r").read().splitlines()] for j in entry]
+
 # part1
 result1 = 0
 for i in range(len(data)):
 	if(i%2 == 0): continue
 	result1 += len(list(filter(lambda x: len(x) in [2,3,4,7], data[i])))
 print("part1: " + str(result1))
-# part2
-# Try via brute force
 
+# part2
 letterToDigit= {
 	'a' : 0,
 	'b' : 1,
@@ -42,8 +42,6 @@ def isValidNumber(number, mapping):
 	convertedNumber = []
 	for i in number:
 		convertedNumber.append(mapping[letterToDigit[i]])
-	#print(number, convertedNumber, mapping)
-	#print("".join(sorted(convertedNumber)), "".join(sorted(convertedNumber)) in ["cf", "acdeg", "acdfg", "bcdf", "abdfg", "abdefg", "acf", "abcdefg", "abcdfg"])
 	return "".join(sorted(convertedNumber)) in ["cf", "acdeg", "acdfg", "bcdf", "abdfg", "abdefg", "acf", "abcdefg", "abcdfg", "abcefg"]
 
 result = 0

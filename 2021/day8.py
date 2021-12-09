@@ -66,5 +66,5 @@ for i in range(len(data)):
 					convertedDigits.append(mapping[letterToDigit[i]])
 				convertedNumber += str(lettersToDigits("".join(sorted(convertedDigits))))
 			result += int(convertedNumber)
-	
+
 print("part2: ",  result)
